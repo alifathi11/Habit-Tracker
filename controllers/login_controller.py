@@ -1,7 +1,6 @@
 from models.user import User
 from models.menus import Menus
-from register_controller import RegisterController
-from data import Data
+from controllers.data import Data
 
 
 class LoginController():
