@@ -10,7 +10,7 @@ from data.user_data import Data
 class HabitTracker():
     def __init__(self):
         super().__init__()
-        Data.load_users_data()
+        Data.load_data()
         self.make_menus()
 
 

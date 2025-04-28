@@ -13,13 +13,13 @@ class Menus:
     def switch_menu(master, menu):
 
         if menu.lower() == "signup menu" and (master == Menus.login_menu or master == Menus.signup_menu):
-            master.show_massage("Redirecting to Signup Menu...")
+            master.show_message("Redirecting to Signup Menu...")
             Menus.current_menu = Menus.signup_menu
         elif menu == "login menu" and (master == Menus.login_menu or master == Menus.signup_menu):
-            master.show_massage("Redirecting to Login Menu...")
+            master.show_message("Redirecting to Login Menu...")
             Menus.current_menu = Menus.login_menu
         elif menu == "main menu" and (master == Menus.login_menu): # may be changed
-            master.show_massage("Redirecting to Main Menu...")
+            master.show_message("Redirecting to Main Menu...")
             Menus.current_menu = Menus.main_menu
         else:
-            master.show_massage("Invalid Menu Name.")
+            master.show_message("Invalid Menu Name.")

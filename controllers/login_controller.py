@@ -9,38 +9,38 @@ class LoginController():
     
     def login(self, username, password):
         if not username or not password:
-            self.view.show_massage("Please Enter a Valid Username and Password.")
+            self.view.show_message("Please Enter a Valid Username and Password.")
             return
         
         if username not in [user["username"] for user in Data.users]:
-            self.view.show_massage("User not found.")
+            self.view.show_message("User not found.")
             return 
         
         user = Data.get_user(username)
         correct_password = user["password"]
         if password != correct_password:
-            self.view.show_massage("Password is not correct.")
+            self.view.show_message("Password is not correct.")
             return
         
-        self.view.show_massage("Login successfully. You are now in Main menu.")
+        self.view.show_message("Login successfully. You are now in Main menu.")
         Menus.switch_menu(self.view, "main menu")
         Data.set_current_user(user)
 
     def forget_password(self, username, email):
         if not username or not email:
-            self.view.show_massage("Please Enter a Valid Username and Email Address.")
+            self.view.show_message("Please Enter a Valid Username and Email Address.")
             return 
         
         if username not in [user["username"] for user in Data.users]:
-            self.view.show_massage("User not found")
+            self.view.show_message("User not found")
             return 
 
         user = Data.get_user(username)
         correct_email = user["email"]
         if email != correct_email:
-            self.view.show_massage("Email Address is not correct.")
+            self.view.show_message("Email Address is not correct.")
             return 
         
         # logic to send email 
-        self.view.show_massage("Check Your Email to Change Your Password!")
+        self.view.show_message("Check Your Email to Change Your Password!")
         

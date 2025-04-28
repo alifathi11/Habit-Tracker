@@ -26,7 +26,7 @@ class LoginView():
             Menus.switch_menu(self, menu)   
 
         else:
-            self.show_massage("Invalid command.")
+            self.show_message("Invalid command.")
 
-    def show_massage(self, massage):
+    def show_message(self, massage):
             print(massage)

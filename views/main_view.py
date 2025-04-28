@@ -27,7 +27,7 @@ class MainView:
         try: 
             input_command = int(input())
         except:
-            self.show_massage("Invalid command.")
+            self.show_message("Invalid command.")
             return
 
         if input_command == 1:
@@ -51,7 +51,7 @@ class MainView:
             try: 
                 edit_option = int(input(edit_options_display))
             except: 
-                self.show_massage("Invalid command.")
+                self.show_message("Invalid command.")
                 return
             
             if edit_option == 1:
@@ -59,16 +59,17 @@ class MainView:
                 self.controller.edit_habit_name(new_habit_name)
 
             elif edit_option == 2:
+                habit_name = input("Enter the habit name: ")
                 new_habit_description = input("Enter the new description: ")
-                self.controller.edit_description(new_habit_description)
+                self.controller.edit_description(habit_name, new_habit_description)
                 
             else:
-                self.show_massage("Please choose ether 1 or 2.")
+                self.show_message("Please choose ether 1 or 2.")
                 return
 
         elif input_command == 5:
             habit_name = input("Enter the habit name: ")
-            self.controller.delete_habit()
+            self.controller.delete_habit(habit_name)
 
         elif input_command == 6:
             self.controller.export_summary()
@@ -77,9 +78,9 @@ class MainView:
             self.controller.exit()
             
         else:
-            self.show_massage("Please Enter a Number between 1 and 7")
+            self.show_message("Please Enter a Number between 1 and 7")
             return
         
-    def show_massage(self, massage):
+    def show_message(self, massage):
             print(massage)
         
