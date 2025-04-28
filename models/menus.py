@@ -3,6 +3,7 @@ class Menus:
     current_menu = None
     signup_menu = None
     login_menu = None
+    main_menu = None
     exit_menu = None
 
     def __init__(self, signup_menu):
@@ -17,5 +18,8 @@ class Menus:
         elif menu == "login menu" and (master == Menus.login_menu or master == Menus.signup_menu):
             master.show_massage("Redirecting to Login Menu...")
             Menus.current_menu = Menus.login_menu
+        elif menu == "main menu" and (master == Menus.login_menu): # may be changed
+            master.show_massage("Redirecting to Main Menu...")
+            Menus.current_menu = Menus.main_menu
         else:
             master.show_massage("Invalid Menu Name.")

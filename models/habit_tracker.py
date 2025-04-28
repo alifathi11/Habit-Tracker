@@ -5,10 +5,12 @@ from views.login_view import LoginView
 from controllers.login_controller import LoginController
 from views.main_view import MainView
 from controllers.main_controller import MainController
+from data.user_data import Data
 
 class HabitTracker():
     def __init__(self):
         super().__init__()
+        Data.load_users_data()
         self.make_menus()
 
 
