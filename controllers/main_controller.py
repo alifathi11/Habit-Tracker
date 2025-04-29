@@ -1,6 +1,7 @@
 from models.user import User
 from models.menus import Menus
 from data.user_data import Data
+from datetime import date
 import sys
 
 class MainController: 
@@ -38,7 +39,9 @@ class MainController:
 
         habit["completed"] = True
         habit["streak"] += 1
+        habit["last_check"] = date.today().isoformat()
         self.view.show_message("Habit completed!")
+
 
     def view_habits_streaks(self):
 
@@ -116,7 +119,7 @@ class MainController:
 
     def save_new_habit(self, name, description):
 
-        new_habit = {"name": name, "description": description, "streak": 0, "completed": False}
+        new_habit = {"name": name, "description": description, "streak": 0, "completed": False, "last_check": None}
         Data.add_user_habit(new_habit)
 
     
