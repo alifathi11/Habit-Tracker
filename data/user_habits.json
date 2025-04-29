@@ -1,11 +1,10 @@
 {
-    "username": [
-        {"title": "example", "description": "some example", "streaks": 5},
+    "ali": [
         {
-
-        },
-        {
-            
+            "name": "ali",
+            "description": "ali",
+            "streak": 1,
+            "completed": true
         }
     ]
 }

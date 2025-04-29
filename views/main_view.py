@@ -56,12 +56,11 @@ class MainView:
             
             if edit_option == 1:
                 new_habit_name = input("Enter the new name: ")
-                self.controller.edit_habit_name(new_habit_name)
+                self.controller.edit_habit_name(habit_name, new_habit_name)
 
             elif edit_option == 2:
-                habit_name = input("Enter the habit name: ")
                 new_habit_description = input("Enter the new description: ")
-                self.controller.edit_description(habit_name, new_habit_description)
+                self.controller.edit_habit_description(habit_name, new_habit_description)
                 
             else:
                 self.show_message("Please choose ether 1 or 2.")

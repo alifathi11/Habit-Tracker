@@ -23,3 +23,4 @@ class Menus:
             Menus.current_menu = Menus.main_menu
         else:
             master.show_message("Invalid Menu Name.")
+            return
