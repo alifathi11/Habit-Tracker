@@ -25,9 +25,9 @@ class UpdateHabits:
 
                     habit_last_check_date = datetime.strptime(habit["last_check"], "%Y-%m-%d").date()
 
-                    if habit_last_check_date < today:
+                    if habit_last_check_date + timedelta(habit["frequency"]) < today:
                         habit["completed"] = False
-                    if habit_last_check_date + timedelta(days=3) < today:
+                    if habit_last_check_date + timedelta(habit["frequency"]) + timedelta(habit["frequency"]) < today:
                         habit["streak"] = 0
                         
         

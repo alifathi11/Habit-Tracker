@@ -42,7 +42,13 @@ class LoginController():
             return 
         
         user_password = user["password"]
-        EmailSender.send_email(email, self.view, "Forget Password", f"Your Password: {user_password}")
+        
+        with open('controllers/google_app_password', 'r') as file:
+            app_password = file.readline()
+        
+        email_sender = EmailSender("smtp.gmail.com", 587, "habit.tracker.pass@gmail.com", app_password)
+
+        email_sender.send_email(self.view, email, "Forget Password", f"Your Password: {user_password}")
         
         
         

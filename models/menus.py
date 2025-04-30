@@ -16,13 +16,16 @@ class Menus:
 
         if menu.lower() == "signup menu" and (master == Menus.login_menu or master == Menus.signup_menu):
             RedirectingAnimation.redirecting_animation("Redirecting to Signup Menu")
+            Menus.signup_menu.menu_header()
             Menus.current_menu = Menus.signup_menu
         elif menu == "login menu" and (master == Menus.login_menu or master == Menus.signup_menu):
             RedirectingAnimation.redirecting_animation("Redirecting to Login Menu")
+            Menus.login_menu.menu_header()
             Menus.current_menu = Menus.login_menu
         elif menu == "main menu" and (master == Menus.login_menu): 
             RedirectingAnimation.redirecting_animation("Redirecting to Main Menu")
+            Menus.main_menu.menu_header()
+            Menus.main_menu.display_menu()
             Menus.current_menu = Menus.main_menu
         else:
             master.show_message("Invalid Menu Name.", "bold red")
-            return

@@ -21,29 +21,34 @@ class MainView:
     def display_menu(self): 
         print(self.display)
 
+    def menu_header(self):
+        self.show_message("================== Main Menu ==================", "bold blue")
+
     def handle_input(self):
 
-        self.display_menu()
-
+        input_command = input()
+        if input_command.lower() == "help":
+            self.display_menu()
         try: 
-            input_command = int(input())
+            input_number = int(input_command)
         except:
             self.show_message("\nInvalid command.\n", "bold red")
             return
 
-        if input_command == 1:
-            habit_name = input("Choose a name for your new habit: ")
+        if input_number == 1:
+            habit_name = input("\nChoose a name for your new habit: ")
             habit_description = input("Write a brief description for your new habit: ")
-            self.controller.add_new_habit(habit_name, habit_description)
+            habit_frequency = input("Enter the frequency in days: ")
+            self.controller.add_new_habit(habit_name, habit_description, habit_frequency)
 
-        elif input_command == 2:
+        elif input_number == 2:
             habit_name = input("Enter the habit name: ")
             self.controller.mark_habit_as_completed(habit_name)
 
-        elif input_command == 3:
+        elif input_number == 3:
             self.controller.view_habits_streaks()
 
-        elif input_command == 4:
+        elif input_number == 4:
             habit_name = input("Enter the habit name: ")
             edit_options_display = """
 1. Edit name
@@ -51,7 +56,7 @@ class MainView:
 """
             try: 
                 edit_option = int(input(edit_options_display))
-            except: 
+            except:
                 self.show_message("\nInvalid command.\n", "bold red")
                 return
             
@@ -67,14 +72,14 @@ class MainView:
                 self.show_message("\nPlease choose ether 1 or 2.\n", "bold yellow")
                 return
 
-        elif input_command == 5:
+        elif input_number == 5:
             habit_name = input("Enter the habit name: ")
             self.controller.delete_habit(habit_name)
 
-        elif input_command == 6:
+        elif input_number == 6:
             self.controller.export_summary()
 
-        elif input_command == 7:
+        elif input_number == 7:
             self.controller.exit()
             
         else:

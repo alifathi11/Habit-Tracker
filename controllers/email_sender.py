@@ -27,5 +27,5 @@ class EmailSender:
             view.show_message("\n✅ Email sent successfully.\n", "bold green")
             return True
         except Exception as e:
-            view.show_message(f"\n❌ Failed to send email.\n", "bold red")
+            view.show_message(f"\n❌ Failed to send email: {e}\n", "bold red")
             return False

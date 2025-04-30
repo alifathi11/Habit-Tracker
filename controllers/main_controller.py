@@ -8,9 +8,9 @@ class MainController:
     def __init__(self, view): 
         self.view = view
 
-    def add_new_habit(self, name, description):
+    def add_new_habit(self, name, description, frequency):
 
-        if not name or not description:
+        if not name or not description or not frequency:
             self.view.show_message("\nPlease enter a valid name and description.\n", "bold yellow")
             return
         
@@ -18,7 +18,13 @@ class MainController:
             self.view.show_message("\nYou have another habit with this name.\n", "bold red")
             return
 
-        self.save_new_habit(name, description)
+        try:
+            frequency_in_days = int(frequency)
+        except Exception as e:
+            self.view.show_message("Frequency must be a number.")
+            return
+
+        self.save_new_habit(name, description, frequency_in_days)
 
         self.view.show_message("\nHabit has been added successfully!\n", "bold green")
     
@@ -135,9 +141,9 @@ class MainController:
     
 
 
-    def save_new_habit(self, name, description):
+    def save_new_habit(self, name, description, frequency):
 
-        new_habit = {"name": name, "description": description, "streak": 0, "longest_streak": 0, "completed": False, "last_check": None}
+        new_habit = {"name": name, "description": description, "frequency": frequency, "streak": 0, "longest_streak": 0, "completed": False, "last_check": None}
         Data.add_user_habit(new_habit)
 
     

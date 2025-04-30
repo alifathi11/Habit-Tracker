@@ -41,7 +41,8 @@ class HabitTracker():
 
     
     def main_loop(self):
-
+        print("\nWelcome to Habit Tracker app. use \"help\" to see possible commands.\n")
+        Menus.current_menu.menu_header()
         while (True):
             Menus.current_menu.handle_input()
 
