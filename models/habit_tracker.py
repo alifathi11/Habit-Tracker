@@ -42,7 +42,7 @@ class HabitTracker():
     
     def main_loop(self):
 
-        while (True): #must be changed
+        while (True):
             Menus.current_menu.handle_input()
 
 

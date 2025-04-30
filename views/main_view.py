@@ -1,4 +1,5 @@
 from models.menus import Menus
+from rich import print
 
 class MainView:
     def __init__(self, controller):
@@ -27,7 +28,7 @@ class MainView:
         try: 
             input_command = int(input())
         except:
-            self.show_message("Invalid command.")
+            self.show_message("\nInvalid command.\n", "bold red")
             return
 
         if input_command == 1:
@@ -51,7 +52,7 @@ class MainView:
             try: 
                 edit_option = int(input(edit_options_display))
             except: 
-                self.show_message("Invalid command.")
+                self.show_message("\nInvalid command.\n", "bold red")
                 return
             
             if edit_option == 1:
@@ -63,7 +64,7 @@ class MainView:
                 self.controller.edit_habit_description(habit_name, new_habit_description)
                 
             else:
-                self.show_message("Please choose ether 1 or 2.")
+                self.show_message("\nPlease choose ether 1 or 2.\n", "bold yellow")
                 return
 
         elif input_command == 5:
@@ -77,9 +78,9 @@ class MainView:
             self.controller.exit()
             
         else:
-            self.show_message("Please Enter a Number between 1 and 7")
+            self.show_message("\nPlease Enter a Number between 1 and 7\n", "bold yellow")
             return
         
-    def show_message(self, massage):
-            print(massage)
+    def show_message(self, massage, style):
+            print(f"[{style}]{massage}[/{style}]")
         

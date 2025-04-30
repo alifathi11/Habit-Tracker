@@ -1,4 +1,5 @@
 from models.menus import Menus
+from rich import print
 
 class SignupView(): 
     def __init__(self, controller):
@@ -22,7 +23,7 @@ class SignupView():
             Menus.switch_menu(self, menu) 
 
         else:
-            self.show_message("Invalid command.")
+            self.show_message("\nInvalid command.\n", "bold red")
 
-    def show_message(self, massage):
-            print(massage)
+    def show_message(self, massage, style):
+            print(f"[{style}]{massage}[/{style}]")

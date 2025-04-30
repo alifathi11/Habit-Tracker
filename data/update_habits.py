@@ -29,6 +29,7 @@ class UpdateHabits:
                         habit["completed"] = False
                     if habit_last_check_date + timedelta(days=3) < today:
                         habit["streak"] = 0
+                        
         
 
         with open('data/user_habits.json', 'w') as file:
